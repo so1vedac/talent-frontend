@@ -50,13 +50,13 @@ const goPage = (pageName) => {
 
     <section class="hero-section">
       <video class="bg-video" autoplay muted loop playsinline v-if="videoData.url">
-        <source :src="videoData.url" type="video/mp4" />
+        <source src="/video.mp4" type="video/mp4" />
       </video>
       <div class="overlay"></div>
       
       <div class="content">
-        <h1 class="title">SEX</h1>
-        <p class="subtitle">너의 "재능"을 SEX로 증명하라</p>
+        <h1 class="title">재능</h1>
+        <p class="subtitle">큰 꿈을 가지고 있거든 재능으로 오라</p>
       </div>
     </section>
 
