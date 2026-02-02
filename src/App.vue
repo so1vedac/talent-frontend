@@ -1,36 +1,16 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import axios from 'axios'
-
-const videoData = ref({ title: '', url: '' })
-
-onMounted(async () => {
-  try {
-    const res = await axios.get('http://localhost:8080/api/hero-video')
-    videoData.value = res.data
-  } catch (err) {
-    console.error('서버 연결 실패:', err)
-  }
-})
-
 const goPage = (pageName) => {
   alert(pageName + ' 페이지로 이동합니다 (준비중)')
 }
 </script>
-
 <template>
   <div class="container">
-    
     <header class="navbar">
-      
       <div class="logo-area">
         <img src="/상징.jpg" alt="재능 로고" class="logo-img" />
       </div>
-
       <nav class="menu-area">
-        
         <a href="#" @click.prevent="goPage('홈')" class="home-btn">홈</a>
-
         <div class="dropdown">
           <a href="#" class="dropbtn">자료실 ▾</a>
           <div class="dropdown-content">
@@ -44,19 +24,19 @@ const goPage = (pageName) => {
         <a href="#" @click.prevent="goPage('재능 연혁')">재능 연혁</a>
         <a href="#" @click.prevent="goPage('재능 상징')">재능 상징</a>
         <a href="#" @click.prevent="goPage('게시판')">게시판</a>
-
       </nav>
     </header>
 
     <section class="hero-section">
-      <video class="bg-video" autoplay muted loop playsinline v-if="videoData.url">
+      <video class="bg-video" autoplay muted loop playsinline>
         <source src="/video.mp4" type="video/mp4" />
       </video>
+      
       <div class="overlay"></div>
       
       <div class="content">
         <h1 class="title">재능</h1>
-        <p class="subtitle">큰 꿈을 가지고 있거든 재능으로 오라</p>
+        <p class="subtitle">너의 재능을 코드로 증명하라</p>
       </div>
     </section>
 
@@ -73,32 +53,19 @@ body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; background-
   position: fixed; top: 0; left: 0; width: 100%; padding: 15px 40px;
   display: flex; justify-content: space-between; align-items: center;
   z-index: 1000;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
 }
 
-/* 로고 스타일 (사진 크기 조절) */
-.logo-img {
-  height: 100px; /* 로고 높이 설정 (너무 크면 줄이세요) */
-  width: auto;  /* 비율 유지 */
-  cursor: pointer;
-}
+.logo-img { height: 80px; width: auto; cursor: pointer; } /* 로고 크기 살짝 조절 */
 
-/* 메뉴 영역 */
 .menu-area { display: flex; align-items: center; gap: 30px; }
-
-.menu-area a {
-  text-decoration: none; color: rgba(255, 255, 255, 0.8); font-size: 1rem; font-weight: 500; transition: color 0.3s;
-}
+.menu-area a { text-decoration: none; color: rgba(255, 255, 255, 0.8); font-size: 1rem; font-weight: 500; transition: color 0.3s; }
 .menu-area a:hover { color: white; }
 
-/* 홈 버튼 스타일 */
-.home-btn {
-  background-color: white; color: black !important;
-  padding: 8px 20px; border-radius: 20px; font-weight: bold;
-}
+.home-btn { background-color: white; color: black !important; padding: 8px 20px; border-radius: 20px; font-weight: bold; }
 .home-btn:hover { background-color: #ddd; }
 
-/* 드롭다운 스타일 */
+/* 드롭다운 */
 .dropdown { position: relative; display: inline-block; }
 .dropdown-content {
   display: none; position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
