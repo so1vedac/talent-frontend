@@ -29,7 +29,7 @@ const goPage = (pageName) => {
 
     <section class="hero-section">
       <video class="bg-video" autoplay muted loop playsinline>
-        <source src="/video.mp4" type="video/mp4" />
+        <source src="/main.mp4" type="video/mp4" />
       </video>
       
       <div class="overlay"></div>
