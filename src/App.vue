@@ -36,7 +36,7 @@ const goPage = (pageName) => {
       
       <div class="content">
         <h1 class="title">재능</h1>
-        <p class="subtitle">너의 재능을 코드로 증명하라</p>
+        <p class="subtitle">꿈이 크거든 재능으로 오라</p>
       </div>
     </section>
 
